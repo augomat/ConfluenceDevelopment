@@ -1,0 +1,44 @@
+## Macro title: Ranorex Version (Rx)
+## Macro name: rxversion
+## Body processing: No Macro Body
+## Description: Shall be used whenever content specifically refers to an Rx version
+## Categories: Confluence Content
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param NotApplicable:title=Not applicable|type=boolean|desc=Use this if this this information does not apply to a specific Ranorex Version or range of versions
+## @param Version:title=Version|type=string|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param Validity:title=Validity|type=enum|enumValues=All versions before,Precise version,All versions after|default=Precise version
+## @param Product:title=Product|type=string|default=Rx
+
+#if ($paramNotApplicable == true)
+
+<ac:structured-macro ac:name="status">
+    <ac:parameter ac:name="colour">red</ac:parameter>
+    <ac:parameter ac:name="title">N/A</ac:parameter>
+    <ac:parameter ac:name="subtle">true</ac:parameter>
+  </ac:structured-macro>
+
+#else
+
+<ac:structured-macro ac:name="status">
+    <ac:parameter ac:name="colour">red</ac:parameter>
+    <ac:parameter ac:name="title">
+        #if ($paramValidity == "All versions before")
+            &le; 
+        #end
+        #if ($paramValidity == "All versions after")
+            &ge; 
+        #end
+        $paramProduct 
+        #if (!$paramVersion)
+            ???? 
+        #else
+            $paramVersion
+        #end
+    </ac:parameter>
+    <ac:parameter ac:name="subtle">true</ac:parameter>
+  </ac:structured-macro>
+
+#end

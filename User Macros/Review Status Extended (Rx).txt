@@ -1,0 +1,113 @@
+## Macro title: Review Status Extended (Rx)
+## Macro name: rxreviewextended
+## Body processing: No Macro Body
+## Description. Extended QA status including reviewed version, reviewer & date
+## Categories: Confluence Content
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param QaState:title=QA status|type=enum|enumValues=N/A,Stub,Draft,Unreviewed,Review pending,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param Reviewer:title=Reviewer|type=username
+## @param Date:title=Review date|type=date|default=DD.MM.YY
+## @param PageVersion:title=Reviewed page version|type=int|desc=Use the current page version seen in the brackets in the preview on the right
+## @param Comment:title=Comment|type=string|desc=E.g. use if the review was only partially done because code-samples were not validated, etc.
+
+<nobr>
+  <ac:structured-macro ac:name="status"> 
+        #if ($paramQaState == "N/A")
+		<ac:parameter ac:name="colour">grey</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+        #if ($paramQaState == "Stub")
+		<ac:parameter ac:name="colour">blue</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+        #if ($paramQaState == "Draft")
+		<ac:parameter ac:name="colour">blue</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+	#if ($paramQaState == "Unreviewed")
+		<ac:parameter ac:name="colour">yellow</ac:parameter>
+		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+	#if ($paramQaState == "Review pending")
+		<ac:parameter ac:name="colour">yellow</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+        #if ($paramQaState == "Under Review")
+		<ac:parameter ac:name="colour">yellow</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+	#if ($paramQaState == "Reviewed")
+		<ac:parameter ac:name="colour">green</ac:parameter>
+		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+	#if ($paramQaState == "Cust-ready")
+		<ac:parameter ac:name="colour">green</ac:parameter>
+		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+  </ac:structured-macro>
+
+#set($showComplexState = true)
+#if ($paramQaState == "Reviewed" || $paramQaState == "Cust-ready")
+
+  ## -- Check required fields for states Reviewed & Cust-ready
+  #if (!$paramPageVersion)
+    #set($showComplexState = false)
+  #end
+  #if (!$paramReviewer)
+    #set($showComplexState = false)
+  #end
+  #if (!$paramDate || $paramDate == "DD.MM.YY")
+    #set($showComplexState = false)
+  #end
+  
+  ## -- Write out reviewed page version
+  #if ($showComplexState == true)
+    #set($Integer = 0 )
+
+    #if ($paramPageVersion.startsWith("v") == true)
+       #set($intParamPage = $Integer.parseInt($paramPageVersion.substring(1)) )
+    #else      
+      #set($intParamPage = $Integer.parseInt($paramPageVersion) )  
+    #end
+
+    #set($realPageVersion = $intParamPage + 1 )
+    v$realPageVersion
+  #end  
+#end
+
+(v$content.version)
+</nobr>
+
+#if ($paramQaState == "Reviewed"  || $paramQaState == "Cust-ready")
+  <br />
+  #if ($showComplexState == true)
+    by $paramReviewer - $paramDate
+  #else
+    (!) Information missing (!)
+  #end
+#end
+
+#if ($paramQaState == "Review pending")
+  <br />
+  #if ($paramReviewer)
+    by $paramReviewer
+  #else
+    (!) Information missing (!)
+  #end
+#end
+
+#if ($paramComment)
+<br />
+<i>$paramComment</i>
+#end

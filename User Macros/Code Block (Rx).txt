@@ -1,0 +1,25 @@
+## Macro title: Code Block (Rx)
+## Macro name: rxcodeblock
+## Body processing: Unrendered
+## Description: Code Block with Ranorex standard-values
+## Categories: Formatting
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param Title:title=Title|type=string
+## @param Firstline:title=First line numer|type=string|default=0001
+## @param Collapse:title=Collapsible|type=boolean|default=false
+## @param Language:title=Syntax highlighting|type=enum|enumValues=csharp,java,vb,html/xml|default=csharp
+
+<ac:structured-macro ac:name="code">
+  #if ($paramTitle)
+    <ac:parameter ac:name="title">$paramTitle</ac:parameter>
+  #end
+  <ac:parameter ac:name="theme">FadeToGrey</ac:parameter>
+  <ac:parameter ac:name="linenumbers">true</ac:parameter>
+  <ac:parameter ac:name="language">$paramLanguage</ac:parameter>
+  <ac:parameter ac:name="firstline">$paramFirstline</ac:parameter>
+  <ac:parameter ac:name="collapse">$paramCollapse</ac:parameter>
+  <ac:plain-text-body><![CDATA[$body]]></ac:plain-text-body>
+</ac:structured-macro>

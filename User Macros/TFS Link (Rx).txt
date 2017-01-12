@@ -1,0 +1,20 @@
+## Macro title: TFS Link (Rx)
+## Macro name: rxtfslink
+## Body processing: No Macro Body
+## Description: Provides a link to an TFS artefact
+## Categories: Confluence Content
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param TfsId:title=TFS artefact ID|type=string|required=true|desc=Issue/Bug/etc. ID|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param Comment:title=Additional comment|type=string
+
+#if ($paramTfsId)
+<a href="http://rxtfs001/tfs/DefaultCollection/Ranorex/_workitems?id=$paramTfsId">#$paramTfsId
+</a>
+#if ($paramComment)
+  ($paramComment)
+#end
+
+#end

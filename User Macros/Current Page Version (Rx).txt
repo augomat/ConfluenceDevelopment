@@ -1,0 +1,11 @@
+## Macro title: Current Page Version (Rx)
+## Macro name: rxcurrentpageversion
+## Body processing: No Macro body
+## Description: Displays the current page version
+## Categories: Formatting
+##
+## Developed by: GK
+## Installed by: ??
+
+## @noparams
+$content.version

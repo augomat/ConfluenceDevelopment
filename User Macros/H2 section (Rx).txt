@@ -1,0 +1,25 @@
+## Macro title: Gitlab Link (Rx)
+## Macro name: rxh2section
+## Body processing: Rendered
+## Description: This is a workaround macro because of Bug CONF-24634. Can be used for h2-sections that are invisible in PDF-exports. ATTENTION: No inline comments can be made on the content of the macro. Consider using the PDF section visibility macro.
+## Categories: Formatting
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param Heading:title=Heading|type=string|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param PdfVisibility:title=PDF visibility|type=enum|enumValues=Hidden,Export|default=Hidden|desc=Specifies whether the content will show up in a PDF export
+
+#if ($paramHeading)
+<h2
+#if ($paramPdfVisibility == "Hidden")
+class="pdf-noexport"
+#end
+>$paramHeading</h2>
+#end
+
+<p
+#if ($paramPdfVisibility == "Hidden")
+class="pdf-noexport"
+#end
+>$body</p>

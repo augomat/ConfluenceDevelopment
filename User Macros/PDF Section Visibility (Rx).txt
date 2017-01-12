@@ -1,0 +1,25 @@
+## Macro title: PDF Section Visibility (Rx)
+## Macro name: rxpdfsectionvisibility
+## Body processing: No macro body
+## Description: Defines the visibility of special custom sections (e.g. Reasons, Solution, ...) within a PDF export
+## Categories: Formatting
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param ShowReasons:title=Show Reasons|type=boolean|desc=Show Reasons-section in PDF|required=true|default=false
+## @param ShowSolutions:title=Show Solution (Summary)|type=boolean|desc=Show Solutions-section in PDF|required=true|default=false
+
+<style>
+
+#if ($paramShowReasons == true)
+.pdf-visibility-reasons {  display: block !important;  }
+#end
+
+#if ($paramShowSolutions == true)
+.pdf-visibility-solutions {  display: block !important;  }
+#end
+</style>
+<div id="rx-pdflogo" align="right">
+<img src="/download/attachments/3244311/ranorex-glyph.png" width="100">
+</div>

@@ -1,0 +1,12 @@
+## Macro title: Align (Rx)
+## Macro name: rxalign
+## Body processing: Rendered
+## Description: Creates an aligned <DIV> around the body, useful if alignment cannot be done correctly in the editor
+## Categories: Formatting
+##
+## Developed by: GK
+## Installed by: ??
+
+## @param Align:title=Align|type=enum|enumValues=Left,Right,Center,Justify|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+
+<div align="$paramAlign">$body</div>
