@@ -1,2 +1,2 @@
 # ConfluenceDevelopment
-Contains all Confluence Macros &amp; Pluginsw
+Contains all Confluence Macros &amp; Plugins
