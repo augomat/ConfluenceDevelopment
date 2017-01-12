@@ -1,13 +1,13 @@
 ## Macro title: Review Status Extended (Rx)
 ## Macro name: rxreviewextended
 ## Body processing: No Macro Body
-## Description. Extended QA status including reviewed version, reviewer & date
+## Description. Extended QA status indicator including reviewed version, reviewer & date
 ## Categories: Confluence Content
 ##
 ## Developed by: GK
 ## Installed by: ??
 
-## @param QaState:title=QA status|type=enum|enumValues=N/A,Stub,Draft,Unreviewed,Review pending,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param QaState:title=QA status|type=enum|enumValues=N/A,Stub,Draft,Unreviewed,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
 ## @param Reviewer:title=Reviewer|type=username
 ## @param Date:title=Review date|type=date|default=DD.MM.YY
 ## @param PageVersion:title=Reviewed page version|type=int|desc=Use the current page version seen in the brackets in the preview on the right

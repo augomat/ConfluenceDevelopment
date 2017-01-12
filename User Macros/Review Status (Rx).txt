@@ -7,32 +7,47 @@
 ## Developed by: GK
 ## Installed by: ??
 
-## @param QaState:title=QA status|type=enum|enumValues=N/A,Draft,Unreviewed,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
+## @param QaState:title=QA status|type=enum|enumValues=N/A,Stub,Draft,Unreviewed,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
    
   <ac:structured-macro ac:name="status">
         #if ($paramQaState == "N/A")
 		<ac:parameter ac:name="colour">grey</ac:parameter>
 		<ac:parameter ac:name="subtle">true</ac:parameter>
-	#end 
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+        #if ($paramQaState == "Stub")
+		<ac:parameter ac:name="colour">blue</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
         #if ($paramQaState == "Draft")
 		<ac:parameter ac:name="colour">blue</ac:parameter>
 		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
 	#end
 	#if ($paramQaState == "Unreviewed")
 		<ac:parameter ac:name="colour">yellow</ac:parameter>
 		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
+	#end
+	#if ($paramQaState == "Review pending")
+		<ac:parameter ac:name="colour">yellow</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
 	#end
         #if ($paramQaState == "Under Review")
 		<ac:parameter ac:name="colour">yellow</ac:parameter>
-		<ac:parameter ac:name="subtle">false</ac:parameter>
+		<ac:parameter ac:name="subtle">true</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
 	#end
 	#if ($paramQaState == "Reviewed")
 		<ac:parameter ac:name="colour">green</ac:parameter>
 		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
 	#end
 	#if ($paramQaState == "Cust-ready")
 		<ac:parameter ac:name="colour">green</ac:parameter>
 		<ac:parameter ac:name="subtle">false</ac:parameter>
+                <ac:parameter ac:name="title">$paramQaState</ac:parameter>
 	#end
-    <ac:parameter ac:name="title">$paramQaState</ac:parameter>
   </ac:structured-macro>
