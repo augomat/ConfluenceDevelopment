@@ -7,6 +7,8 @@
 ## Developed by: GK
 ## Installed by: ??
 
+## Note: Unfortunately, there is no way in Velocity to catch the possible exception from $Integer.parseInt() - the user macro thus fails to render in case the editor puts in something else than '\d*' or 'v\d*' (both regex).
+
 ## @param QaState:title=QA status|type=enum|enumValues=N/A,Stub,Draft,Unreviewed,Under Review,Reviewed,Cust-ready|default=Unreviewed|option-showNameInPlaceholder=false|option-showValueInPlaceholder=true
 ## @param Reviewer:title=Reviewer|type=username
 ## @param Date:title=Review date|type=date|default=DD.MM.YY
