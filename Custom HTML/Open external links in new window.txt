@@ -1,0 +1,7 @@
+<!-- At end of HEAD -->
+<!-- all links outside of Confluence will be opened in a new tab -->
+<script>
+jQuery(document).ready(function() {
+    jQuery(".external-link").attr("target", "_blank");
+});
+</script>

@@ -1,0 +1,27 @@
+/* manually added pdf no-export classes */
+.pdf-noexport,
+.pdf-noexport-reasons, 
+.pdf-noexport-solutions
+{
+  display: none;
+}
+
+/* does not currently work :( */
+@font-face {
+  font-family: Segoe;
+  src: url(http://confluence/download/attachments/5374202/segoeuil.ttf?version=1&modificationDate=1482508833903&api=v2);
+} 
+
+/* overwritten Cf-std selectors */
+.panelHeader { display: none; }
+.panel { border-width: 0px !important; }
+.panelContent { margin-left: -25px; }
+h1 { padding-left: 10px; padding-bottom:10px; }
+p { margin-left: 20px; line-height: 150%; font-size: 12px; }
+li { line-height: 150%; font-size: 12px; }
+
+#rx-pdflogo { display: block !important; margin-top: -55px; }
+
+/* surrounding no-export div needs to emulate h2-margins - can we solve this with display: inline?*/
+.h2-section { margin: 30px 0 0 0;}
+.h2-section-important {margin: 30px 0 0 0 !important;}    

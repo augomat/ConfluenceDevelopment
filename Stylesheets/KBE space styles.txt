@@ -1,0 +1,9 @@
+/* for H2-section macro so that H2 that is encapsulated into a div has a correct margin */
+.h2-section {margin: 30px 0 0 0;}
+
+/* overrides std Cf template such that a h2 which is at the beginning of a section has its default top-margin (instead of 0). Luckily there is another Cf std rule that still does this for the very first h2, which would otherwise be too far away from the title */
+/* does not yet work as expected - workaround with additional linebreak shall be used */
+/* .wiki-content h2:first-child { margin-top: 30px} */
+
+/* for PDF section visibility macro, which displays an rx-logo for the PDF export, which has to be invisible on the normal pages */
+#rx-pdflogo {display: none;}  

@@ -1,0 +1,11 @@
+<!-- At end of HEAD -->
+<!-- this is VERY hacky but i was not able to figure out whether there is a JS event such as OnEditModeLoaded. Furthermore, we should include something like delete value if value == "minor" im #versionComment onClick -->
+<script type="text/javascript">
+if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
+  setInterval(function(){ 
+          if (jQuery && jQuery('#versionComment')[0] && jQuery('#versionComment')[0].value == "") {
+            jQuery('#versionComment')[0].value = "minor";
+          } 
+  }, 3000);
+}
+</script>
