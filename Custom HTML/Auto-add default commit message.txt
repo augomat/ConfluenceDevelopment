@@ -1,11 +1,33 @@
 <!-- At end of HEAD -->
-<!-- this is VERY hacky but i was not able to figure out whether there is a JS event such as OnEditModeLoaded. Furthermore, we should include something like delete value if value == "minor" im #versionComment onClick -->
+<!-- this is VERY hacky but there appears not to be any OnEditModeLoaded JS event I could hook on -->
 <script type="text/javascript">
 if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
-  setInterval(function(){ 
-          if (jQuery && jQuery('#versionComment')[0] && jQuery('#versionComment')[0].value == "") {
-            jQuery('#versionComment')[0].value = "minor";
-          } 
-  }, 3000);
+	setInterval(function() { 
+		//mimic static variable
+		if (typeof arguments.callee.flagAlreadySet == 'undefined') {
+			arguments.callee.flagAlreadySet = false;
+		}
+		if (jQuery && jQuery('#versionComment')[0] && jQuery('#versionComment')[0].value == "" && !arguments.callee.flagAlreadySet) {
+		    jQuery('#versionComment')[0].value = "minor";
+			arguments.callee.flagAlreadySet = true;
+		} 
+	}, 3000);
+}
+</script>
+
+
+
+
+
+
+
+<!-- At the beginning of BODY -->
+<script type="text/javascript">
+if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
+	jQuery('body').on('click', '#versionComment', function () {
+		if (jQuery('#versionComment')[0].value == "minor") {
+		   jQuery('#versionComment').select();
+		}
+	});
 }
 </script>
