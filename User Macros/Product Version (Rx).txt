@@ -17,7 +17,7 @@
 
 <ac:structured-macro ac:name="status">
     <ac:parameter ac:name="colour">red</ac:parameter>
-    <ac:parameter ac:name="title">N/A</ac:parameter>
+    <ac:parameter ac:name="title">$paramProduct N/A</ac:parameter>
     <ac:parameter ac:name="subtle">true</ac:parameter>
   </ac:structured-macro>
 
