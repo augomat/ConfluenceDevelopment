@@ -16,7 +16,7 @@
   #if ($paramTitle)
     <ac:parameter ac:name="title">$paramTitle</ac:parameter>
   #end
-  <ac:parameter ac:name="theme">FadeToGrey</ac:parameter>
+  <ac:parameter ac:name="theme">RDark</ac:parameter>
   <ac:parameter ac:name="linenumbers">true</ac:parameter>
   <ac:parameter ac:name="language">$paramLanguage</ac:parameter>
   <ac:parameter ac:name="firstline">$paramFirstline</ac:parameter>
