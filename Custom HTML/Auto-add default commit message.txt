@@ -8,7 +8,7 @@ if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
 			arguments.callee.flagAlreadySet = false;
 		}
 		if (jQuery && jQuery('#versionComment')[0] && jQuery('#versionComment')[0].value == "" && !arguments.callee.flagAlreadySet) {
-		    jQuery('#versionComment')[0].value = "minor";
+		    jQuery('#versionComment')[0].value = "minor edit";
 			arguments.callee.flagAlreadySet = true;
 		} 
 	}, 3000);
@@ -25,7 +25,7 @@ if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
 <script type="text/javascript">
 if (AJS && AJS.$('meta[name=confluence-space-key]').attr("content")== 'KBE') {
 	jQuery('body').on('click', '#versionComment', function () {
-		if (jQuery('#versionComment')[0].value == "minor") {
+		if (jQuery('#versionComment')[0].value == "minor edit") {
 		   jQuery('#versionComment').select();
 		}
 	});
